@@ -32,4 +32,8 @@ export class PocFormsComponent implements OnInit {
   get f(){
     return this.pocForm.controls;
   }
+
+  clear(){
+    return this.pocForm.reset();
+  }
 }

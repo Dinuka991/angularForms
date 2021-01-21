@@ -1,25 +1,9 @@
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat-core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
 $angularForms-primary: mat-palette($mat-indigo);
 $angularForms-accent: mat-palette($mat-pink, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
 $angularForms-warn: mat-palette($mat-red);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
 $angularForms-theme: mat-light-theme((
   color: (
     primary: $angularForms-primary,
@@ -28,12 +12,49 @@ $angularForms-theme: mat-light-theme((
   )
 ));
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include angular-material-theme($angularForms-theme);
 
-/* You can add global styles to this file, and also import other style files */
+$dekstop: 800px;
+$marginT: 10%;
+$minWidth: 40%;
+$maxHeight: 100%;
+$paddingN: 25px;
+$colors: (
+ 
+   backG: rgb(231, 231, 250),
+   warn: rgb(252, 145, 145),
+   redWarn: rgb(235, 8, 8),
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+);
+
+
+@function color($color-name){
+    @return map-get($colors, $color-name)
+}
+
+
+@mixin  dekstop {
+  @media  (min-width: $dekstop)  {
+      @content;
+  }
+  
+}
+
+html, body { height: $maxHeight; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  background-color: color(backG);}
+
+
+.emp-card{
+    margin-top: $marginT !important;
+    margin: auto;
+    padding: $paddingN;
+
+    @include dekstop { 
+      max-width: $minWidth;
+  }
+}
+
+.errorMessage{
+    color: color(warn);
+    font-size: x-small;
+}
