@@ -1,0 +1,10 @@
+.emp-card{
+    margin-top: 10% !important;
+    margin: auto;
+    padding: 25px;
+}
+@media screen and (min-width: 980px) {
+    .emp-card{
+      max-width: 40%;
+    }
+  }
