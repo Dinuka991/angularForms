@@ -1,5 +1,8 @@
 <body>
 <mat-card class="emp-card">
+  <mat-card-header>
+    <mat-card-title>Customer Form</mat-card-title><br>
+   </mat-card-header> 
     <mat-card-content>
       <form   [formGroup]="pocForm" (ngSubmit)="onSubmit(pocForm)"  >
         <div   fxLayout="column" >
@@ -7,19 +10,40 @@
               <mat-form-field fxFlex.lg=50% appearance="outline">
                 <mat-label>First Name</mat-label>
                 <input type="text" matInput formControlName="firstName">
+                <div  class="errorMessage" *ngIf="f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)">
+                  <div *ngIf="f.firstName.errors?.required">
+                   First Name Required
+                  </div>  
+                </div>
               </mat-form-field>
+              
               <mat-form-field   fxFlex.lg=50%  appearance="outline">
                 <mat-label>Last Name</mat-label>
                 <input type="text" matInput formControlName="lastName">
+                <div  class="errorMessage" *ngIf="f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)">
+                  <div *ngIf="f.lastName.errors?.required">
+                   Last Name Required
+                  </div>  
+                </div>
               </mat-form-field>
           </div>
           <mat-form-field appearance="outline">
             <mat-label>Customer  Mobile</mat-label>
             <input  type="text" matInput formControlName="customerMobile" >
+            <div  class="errorMessage" *ngIf="f.customerMobile.invalid && (f.customerMobile.dirty || f.customerMobile.touched)">
+              <div *ngIf="f.customerMobile.errors?.required">
+               Last Name Required
+              </div>  
+            </div>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Customer  Email</mat-label>
             <input type="text" matInput formControlName="customerEmail">
+            <div  class="errorMessage" *ngIf="f.customerEmail.invalid && (f.customerEmail.dirty || f.customerEmail.touched)">
+              <div *ngIf="f.customerEmail.errors?.email">
+               Enter Valid Email
+              </div>
+            </div>
           </mat-form-field>
           <div fxLayoutAlign="end center">  
             <button mat-flat-button color="primary"    [disabled]="pocForm.invalid" type="submit"  >Submit</button>

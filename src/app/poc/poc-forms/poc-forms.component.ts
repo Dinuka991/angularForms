@@ -28,4 +28,8 @@ export class PocFormsComponent implements OnInit {
     console.log('Your form data : ', form.value);
     }
   }
+
+  get f(){
+    return this.pocForm.controls;
+  }
 }
