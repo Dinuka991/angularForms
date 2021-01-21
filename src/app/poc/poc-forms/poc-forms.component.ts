@@ -12,9 +12,10 @@ export class PocFormsComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    
   }
-    pocForm = this.fb.group({
 
+    pocForm = this.fb.group({
     firstName:['' , [Validators.required]],
     lastName:['', [Validators.required] ],
     customerMobile:['' , [Validators.required]],
