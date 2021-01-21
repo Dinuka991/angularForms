@@ -48,6 +48,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  background
     margin-top: $marginT !important;
     margin: auto;
     padding: $paddingN;
+    box-shadow: 0 4px 8px 0 rgba(198, 193, 255, 0.2), 0 6px 20px 0 rgba(134, 163, 245, 0.19);
+    border: 1px solid var(--border);
+    border-radius: 1% !important;
 
     @include dekstop { 
       max-width: $minWidth;
