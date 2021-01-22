@@ -12,6 +12,8 @@ export class PocFormsComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.patch();
+    this.fValueName();
     
   }
 
@@ -33,7 +35,18 @@ export class PocFormsComponent implements OnInit {
     return this.pocForm.controls;
   }
 
+  patch(){
+    this.pocForm.patchValue({
+      firstName: 'dev'
+    })
+  }
+
   clear(){
     return this.pocForm.reset();
   }
+  
+  fValueName(){
+    console.log(this.pocForm.controls['firstName'].value);
+  }
+
 }
